@@ -34,14 +34,19 @@ stages:
     displayName: DN-Job1
     pool: $(poolvar)
     steps:
-
-    - task: Bash@3
-      displayName:Task1
-      inputs:
-        targetType: 'inline'
-        script: |
-                echo "-------------------------------------------------------"
-                echo "ACRurlVar                           >>>>   $(ACRurlVar)"
-                echo "imagerRepo                          >>>>   $(imagerRepo)"
-      
-
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "------show secret__variable from Library Var Group buildsENV------------------"
+                            echo "TenantID                            >>>>   $(TenantID)"
+                            echo "PAT                                 >>>>   $(PAT)"          
+                            echo "$(TenantID)" > TenantID.txt
+                            sed "s/ll/-----/g" TenantID.txt
+                            ls -l
+                            cat TenantID.txt
+                            echo "#######################################################"
+                            echo "$(PAT)" > PAT.txt
+                            sed "s/ll/-----/g" PAT.txt
+                            ls -l
+                            cat PAT.txt
