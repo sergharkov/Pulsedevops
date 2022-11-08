@@ -55,4 +55,5 @@ stages:
           echo "#######################################################"
           echo "$(PAT)" > PAT.txt
           sed "s/ll/-----/g" PAT.txt
+          ls -l
           cat PAT.txt
