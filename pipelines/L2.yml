@@ -1,21 +1,46 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
-- main
+  batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
+  branches:
+    include:
+    - 'main'
+  paths:
+   exclude:
+     -  '*'
+resources:
+- repo: self
 
-pool:
-  vmImage: ubuntu-latest
+pool: CentOS
+#  vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+variables:
+  app: 'app'
+  BRANCH: 'itea'
+  poolvar: ITEA
+  ACRvar: 'ksidopsaks'
+  imagerRepo: '$(BRANCH)-$(app)'
+  tag: '$(Build.BuildId)'
+  NameSpaceDeploy: 'develop'
+  URKACR: '$(ACRvar).azurecr.io'
+  ACRurlVar: "$(ACRvar).azurecr.io/$(imagerRepo)"
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+stages:
+##################################################
+- stage: Stage1
+  variables:
+  - group: buildsENV
+  displayName: Build UI image
+  jobs:
+  - job: Job1
+    displayName: BuildUI
+    pool: $(poolvar)
+    steps:
+
+    - task: Bash@3
+      displayName: DisplayNameTask1
+      name: Task1
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo "-------------------------------------------------------"
+          echo "ACRurlVar                           >>>>   $(ACRurlVar)"
+          echo "imagerRepo                          >>>>   $(imagerRepo)"
