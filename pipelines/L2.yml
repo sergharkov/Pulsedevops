@@ -35,6 +35,7 @@ stages:
     pool: $(poolvar)
     steps:
       - task: Bash@3
+        displayName: DN-task1-showVariables
         inputs:
           targetType: 'inline'
           script: |
