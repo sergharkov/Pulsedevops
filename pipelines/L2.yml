@@ -28,15 +28,15 @@ stages:
 - stage: Stage1
   variables:
   - group: buildsENV
-  displayName: Build UI image
+  displayName: DN-Stage1
   jobs:
   - job: Job1
-    displayName: BuildUI
+    displayName: DN-Job1
     pool: $(poolvar)
     steps:
 
     - task: Bash@3
-      displayName: DisplayNameTask1
+      displayName:DN-Task1
       name: Task1
       inputs:
         targetType: 'inline'
