@@ -1,0 +1,58 @@
+trigger:
+  batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
+  branches:
+    include:
+    - 'main'
+  paths:
+   exclude:
+     -  '*'
+resources:
+- repo: self
+
+pool: CentOS
+#  vmImage: 'ubuntu-latest'
+
+variables:
+  app: 'app'
+  BRANCH: 'itea'
+  poolvar: CentOS
+  ACRvar: 'ksidopsaks'
+  imagerRepo: '$(BRANCH)-$(app)'
+  tag: '$(Build.BuildId)'
+  NameSpaceDeploy: 'develop'
+  URKACR: '$(ACRvar).azurecr.io'
+  ACRurlVar: "$(ACRvar).azurecr.io/$(imagerRepo)"
+
+stages:
+##################################################
+- stage: Stage1
+  variables:
+  - group: buildsENV
+  displayName: DN-Stage1
+  jobs:
+  - job: Job1
+    displayName: DN-Job1
+    pool: $(poolvar)
+    steps:
+      - task: Bash@3
+        displayName: DN-task1-showVariables
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "------show secret__variable from Library Var Group buildsENV------------------"
+            echo "TenantID                            >>>>   $(TenantID)"
+            echo "PAT                                 >>>>   $(PAT)"
+            
+            echo "#######################################################"
+            echo "$(TenantID)" > TenantID.txt
+            sed "s/3/---/g" TenantID.txt
+            echo "Catting TenantFile  : >>> "
+            cat TenantID.txt
+
+            echo "#######################################################"
+            echo "$(PAT)" > PAT.txt
+            sed "s/3/---/g" PAT.txt
+            echo "Catting PATFile  : >>> "
+            cat PAT.txt
+            echo "show all files:"
+            ls -l
