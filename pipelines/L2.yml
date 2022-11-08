@@ -35,12 +35,12 @@ stages:
     pool: $(poolvar)
     steps:
 
-- task: Bash@3
-  displayName:DN_Task1
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo "-------------------------------------------------------"
+    - task: Bash@3
+      displayName:DN_Task1
+      inputs:
+        targetType: 'inline'
+        script: |
+                echo "-------------------------------------------------------"
                 echo "ACRurlVar                           >>>>   $(ACRurlVar)"
                 echo "imagerRepo                          >>>>   $(imagerRepo)"
       
