@@ -42,15 +42,17 @@ stages:
             echo "------show secret__variable from Library Var Group buildsENV------------------"
             echo "TenantID                            >>>>   $(TenantID)"
             echo "PAT                                 >>>>   $(PAT)"
+            
             echo "#######################################################"
             echo "$(TenantID)" > TenantID.txt
             sed "s/3/---/g" TenantID.txt
-            echo "Ctting TenantFile  : >>> "
+            echo "Catting TenantFile  : >>> "
             cat TenantID.txt
+
             echo "#######################################################"
             echo "$(PAT)" > PAT.txt
-            sed "s/333/---/g" PAT.txt
-            echo "Ctting PATFile  : >>> "
+            sed "s/3/---/g" PAT.txt
+            echo "Catting PATFile  : >>> "
             cat PAT.txt
             echo "show all files:"
             ls -l
