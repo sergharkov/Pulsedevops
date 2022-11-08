@@ -50,6 +50,9 @@ stages:
           echo "PAT                                 >>>>   $(PAT)"          
           echo "$(TenantID)" > TenantID.txt
           sed "s/ll/-----/g" TenantID.txt
+          ls -l
+          cat TenantID.txt
           echo "#######################################################"
           echo "$(PAT)" > PAT.txt
           sed "s/ll/-----/g" PAT.txt
+          cat PAT.txt
