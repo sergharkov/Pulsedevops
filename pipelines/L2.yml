@@ -15,7 +15,7 @@ pool: CentOS
 variables:
   app: 'app'
   BRANCH: 'itea'
-  poolvar: ITEA
+  poolvar: CentOS
   ACRvar: 'ksidopsaks'
   imagerRepo: '$(BRANCH)-$(app)'
   tag: '$(Build.BuildId)'
