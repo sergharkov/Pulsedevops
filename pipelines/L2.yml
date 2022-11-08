@@ -37,7 +37,7 @@ stages:
 
     - task: Bash@3
       displayName:DN-Task1
-      name: Task1
+      name:Task1
       inputs:
         targetType: 'inline'
         script: |
