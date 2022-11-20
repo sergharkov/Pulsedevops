@@ -2,12 +2,14 @@ trigger:
   batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
   branches:
     include:
-    - 'main'
-    - 'pipelines'
+    - main
+    - pipelines
+  paths:
+    include:
+    - src
+    - pipelines
     exclude:
-      - pipelines/Untrig/testtrigers
-#  paths:
-#   exclude:
+    - Untrig
 
 resources:
 - repo: self
