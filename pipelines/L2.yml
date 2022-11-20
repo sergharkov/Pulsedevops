@@ -3,10 +3,10 @@ trigger:
   branches:
     include:
     - 'main'
-#    - 'pipelines'
+    - 'pipelines'
   paths:
    exclude:
-     - 'pipelines/Untrig/*'
+     - 'pipelines/Untrig/testtrigers'
 resources:
 - repo: self
 
