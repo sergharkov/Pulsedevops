@@ -6,7 +6,7 @@ trigger:
     - 'pipelines'
   paths:
    exclude:
-     - pipelines/Untrig/*
+     - 'pipelines/Untrig/*'
 resources:
 - repo: self
 
