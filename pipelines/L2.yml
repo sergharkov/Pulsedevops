@@ -1,11 +1,11 @@
 trigger:
   batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
-  branches:
-    include:
-    - 'main'
-  paths:
-   exclude:
-     -  '*'
+#  branches:
+#    include:
+#    - 'main'
+#  paths:
+#   exclude:
+#     -  '*'
 resources:
 - repo: self
 
