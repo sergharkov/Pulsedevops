@@ -4,9 +4,11 @@ trigger:
     include:
     - 'main'
     - 'pipelines'
-  paths:
-   exclude:
-     - 'pipelines/Untrig/testtrigers'
+    exclude:
+      - pipelines/Untrig/testtrigers
+#  paths:
+#   exclude:
+
 resources:
 - repo: self
 
