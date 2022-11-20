@@ -1,3 +1,12 @@
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - main
+    - pipelines
+
 trigger:
   batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
   branches:
