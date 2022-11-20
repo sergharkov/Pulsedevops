@@ -56,3 +56,4 @@ stages:
             cat PAT.txt
             echo "show all files:"
             ls -l
+            
