@@ -50,7 +50,7 @@ stages:
 ##################################################
 - stage: Stage1
   variables:
-  - group: buildsENV
+    VarStage1A: ${{parameters.VarParametrsNumber}}
   displayName: DN-Stage1
   jobs:
   - job: Job1
@@ -62,7 +62,8 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            echo "------show secret__variable from Library Var Group buildsENV------------------"
+            echo "------Print Var from Parametr------------------"
+            echo "VarStage1A  ==  $(VarStage1A)"
 
 - stage: Stage2
   variables:
