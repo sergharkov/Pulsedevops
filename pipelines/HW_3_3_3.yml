@@ -41,8 +41,10 @@ parameters:
     displayName: 'Type of build  VarParametrsBoolean'
     type: boolean
     default: true
-variables:
-  - group: buildsENV
+
+#variables:
+#  - group: buildsENV
+  
 stages:
 ##################################################
 - stage: Stage1
