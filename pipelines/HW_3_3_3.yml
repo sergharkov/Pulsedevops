@@ -22,8 +22,8 @@ trigger:
 resources:
 - repo: self
 
-pool: CentOS
-#  vmImage: 'ubuntu-latest'
+pool: #CentOS
+  vmImage: 'ubuntu-latest'
 
 parameters:
   - name: VarParametrsString
