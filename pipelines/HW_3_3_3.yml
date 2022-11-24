@@ -1,4 +1,8 @@
-
+#Varriables across(between) stages from parametrs
+#https://arunksingh16.medium.com/azure-devops-share-variable-across-stages-9bca85abfe8a
+#Output variables are still produced by steps inside of jobs. 
+#Instead of referring to dependencies.jobName.outputs['stepName.variableName'],
+#stages refer to stageDependencies.stageName.jobName.outputs['stepName.variableName'].
 trigger:
   batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
   branches:
@@ -67,7 +71,7 @@ stages:
 
 - stage: Stage2
   variables:
-  - group: buildsENV
+    VarStage2B: stageDependencies.Stage1.outputs['VarStage1A']
   displayName: DN-Stage2
   jobs:
   - job: Job1
