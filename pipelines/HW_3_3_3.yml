@@ -46,8 +46,9 @@ stages:
 ##################################################
 - stage: Stage1
   variables:
+  - group: buildsENV
     VarStage1A: ${{parameters.VarParametrsString}}
-  - group: buildsENV  
+
   displayName: DN-Stage1
   jobs:
   - job: Job1
