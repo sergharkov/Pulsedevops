@@ -83,6 +83,5 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-          script: |
             echo "------Print Var from Parametr------------------"
             echo "VarStage2B  ==  $(VarStage2B)"
