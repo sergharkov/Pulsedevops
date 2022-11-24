@@ -41,12 +41,12 @@ parameters:
     displayName: 'Type of build  VarParametrsBoolean'
     type: boolean
     default: true
-
+variables:
+  - group: buildsENV
 stages:
 ##################################################
 - stage: Stage1
   variables:
-  - group: buildsENV
     VarStage1A: ${{parameters.VarParametrsString}}
 
   displayName: DN-Stage1
