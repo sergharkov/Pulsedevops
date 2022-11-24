@@ -16,6 +16,13 @@ resources:
 pool: CentOS
 #  vmImage: 'ubuntu-latest'
 
+parameters:
+  - name: VarParametrs
+    displayName: 'Type of build'
+    type: string
+    default: 'type3'
+    values: ['type1', 'type2', 'type3']
+
 variables:
   app: 'app'
   BRANCH: 'itea'
