@@ -17,11 +17,21 @@ pool: CentOS
 #  vmImage: 'ubuntu-latest'
 
 parameters:
-  - name: VarParametrs
-    displayName: 'Type of build'
+  - name: VarParametrsString
+    displayName: 'Type of build  VarParametrsString'
     type: string
     default: 'type3'
     values: ['type1', 'type2', 'type3']
+
+  - name: VarParametrsNumberA
+    displayName: 'Type of build  VarParametrsNumber'
+    type: number
+    value: 10
+
+  - name: VarParametrsBooleanB
+    displayName: 'Type of build  VarParametrsBoolean'
+    type: boolean
+    value: true 
 
 variables:
   app: 'app'
