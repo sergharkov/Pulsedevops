@@ -71,9 +71,9 @@ stages:
           script: |
             echo "------Print Var from Parametr------------------"
             echo "VarStage1A  ==  $(VarStage1A)"
-            TASKvAR="$(VarStage1A)"
-            echo "TASKvAR   == $TASKvAR"
-            echo "##vso[task.setvariable variable=VarKey;isOutput=true]$TASKvAR"
+            #TASKvAR="$(VarStage1A)"
+            #echo "(VarStage1A)   == $(VarStage1A)"
+            echo "##vso[task.setvariable variable=VarKey;isOutput=true]$(VarStage1A)"
 
 - stage: Stage2
   variables:
