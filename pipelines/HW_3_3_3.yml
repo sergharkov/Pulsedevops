@@ -71,7 +71,7 @@ stages:
           script: |
             echo "------Print Var from Parametr------------------"
             echo "VarStage1A  ==  $(VarStage1A)"
-            $TASKvAR=$(VarStage1A)
+            $TASKvAR="$(VarStage1A)"
 
 - stage: Stage2
   variables:
