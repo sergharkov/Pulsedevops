@@ -20,18 +20,20 @@ parameters:
   - name: VarParametrsString
     displayName: 'Type of build  VarParametrsString'
     type: string
-    default: 'type3'
+    default: 'type4def'
     values: ['type1', 'type2', 'type3']
 
   - name: VarParametrsNumberA
     displayName: 'Type of build  VarParametrsNumber'
     type: number
-    value: "10"
+    default: 10
+    values: 100
 
   - name: VarParametrsBooleanB
     displayName: 'Type of build  VarParametrsBoolean'
     type: boolean
-    value: true 
+    default: true
+    value: false
 
 variables:
   app: 'app'
