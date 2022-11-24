@@ -74,7 +74,7 @@ stages:
 - stage: Stage2
   variables:
   - name: VarStage2B 
-    value: $[ Dependencies.Stage1.outputs['VarStage1A'] ]
+    value: $[ Dependencies.Stage1.outputs['Variable.VarStage1A'] ]
 
 
   displayName: DN-Stage2
