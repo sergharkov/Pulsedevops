@@ -83,5 +83,6 @@ stages:
         inputs:
           targetType: 'inline'
           script: |
-            echo "------show secret__variable from Library Var Group buildsENV------------------"
-
+          script: |
+            echo "------Print Var from Parametr------------------"
+            echo "VarStage2B  ==  $(VarStage2B)"
