@@ -1,5 +1,6 @@
 #Varriables across(between) stages from parametrs
 #https://arunksingh16.medium.com/azure-devops-share-variable-across-stages-9bca85abfe8a
+#https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch
 #Output variables are still produced by steps inside of jobs. 
 #Instead of referring to dependencies.jobName.outputs['stepName.variableName'],
 #stages refer to stageDependencies.stageName.jobName.outputs['stepName.variableName'].
