@@ -27,13 +27,13 @@ parameters:
     displayName: 'Type of build  VarParametrsNumber'
     type: number
     default: 10
-    values: 100
+
 
   - name: VarParametrsBooleanB
     displayName: 'Type of build  VarParametrsBoolean'
     type: boolean
     default: true
-    value: false
+
 
 variables:
   app: 'app'
