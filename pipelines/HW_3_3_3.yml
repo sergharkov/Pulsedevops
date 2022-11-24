@@ -64,17 +64,19 @@ stages:
     pool: $(poolvar)
     steps:
       - task: Bash@3
+        name: Task1J1S1
         displayName: DN-task1-showVariables
         inputs:
           targetType: 'inline'
           script: |
             echo "------Print Var from Parametr------------------"
             echo "VarStage1A  ==  $(VarStage1A)"
+            $TASKvAR=$(VarStage1A)
 
 - stage: Stage2
   variables:
   - name: VarStage2B 
-    value: $[ Dependencies.Stage1.outputs['Variable.VarStage1A'] ]
+    value: $[ stageDependencies.Stage1.Job1.outputs['Task1J1S1.TASKvAR'] ]
 
 
   displayName: DN-Stage2
