@@ -73,11 +73,12 @@ stages:
             echo "VarStage1A  ==  $(VarStage1A)"
             TASKvAR="$(VarStage1A)"
             echo "TASKvAR   == $TASKvAR"
+            echo "##vso[task.setvariable variable=VarKey;isOutput=true]$TASKvAR"
 
 - stage: Stage2
   variables:
   - name: VarStage2B 
-    value: $[ stageDependencies.Stage1.Job1.outputs['Task1J1S1.TASKvAR'] ]
+    value: $[ stageDependencies.Stage1.Job1.outputs['Task1J1S1.VarKey'] ]
 
 
   displayName: DN-Stage2
