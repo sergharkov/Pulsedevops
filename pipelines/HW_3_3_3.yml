@@ -23,13 +23,13 @@ parameters:
     default: 'type4def'
     values: ['type1', 'type2', 'type3']
 
-  - name: VarParametrsNumberA
+  - name: VarParametrsNumber
     displayName: 'Type of build  VarParametrsNumber'
     type: number
     default: 10
 
 
-  - name: VarParametrsBooleanB
+  - name: VarParametrsBoolean
     displayName: 'Type of build  VarParametrsBoolean'
     type: boolean
     default: true
@@ -59,6 +59,22 @@ stages:
     steps:
       - task: Bash@3
         displayName: DN-task1-showVariables
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "------show secret__variable from Library Var Group buildsENV------------------"
+
+- stage: Stage2
+  variables:
+  - group: buildsENV
+  displayName: DN-Stage2
+  jobs:
+  - job: Job1
+    displayName: DN-Job2.1
+    pool: $(poolvar)
+    steps:
+      - task: Bash@3
+        displayName: DN-task2.1.1-showVariables
         inputs:
           targetType: 'inline'
           script: |
