@@ -22,8 +22,8 @@ trigger:
 resources:
 - repo: self
 
-pool: #CentOS
-  vmImage: 'ubuntu-latest'
+pool: CentOS
+#  vmImage: 'ubuntu-latest'
 
 parameters:
   - name: VarParametrsString
@@ -55,7 +55,7 @@ stages:
   jobs:
   - job: Job1
     displayName: DN-Job1
-    pool: $(poolvar)
+#    pool: $(poolvar)
     steps:
       - task: Bash@3
         name: Task1J1S1
@@ -80,7 +80,7 @@ stages:
   jobs:
   - job: Job1
     displayName: DN-Job2.1
-    pool: $(poolvar)
+#    pool: $(poolvar)
     steps:
       - task: Bash@3
         displayName: DN-task2.1.1-showVariables
