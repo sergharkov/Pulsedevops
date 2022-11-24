@@ -26,7 +26,7 @@ parameters:
   - name: VarParametrsNumberA
     displayName: 'Type of build  VarParametrsNumber'
     type: number
-    value: 10
+    value: "10"
 
   - name: VarParametrsBooleanB
     displayName: 'Type of build  VarParametrsBoolean'
