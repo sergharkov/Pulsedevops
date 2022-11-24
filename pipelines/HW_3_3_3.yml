@@ -3,6 +3,7 @@
 #Output variables are still produced by steps inside of jobs. 
 #Instead of referring to dependencies.jobName.outputs['stepName.variableName'],
 #stages refer to stageDependencies.stageName.jobName.outputs['stepName.variableName'].
+#https://erwinstaal.nl/posts/azure-devops-multistage-pass-variables/
 trigger:
   batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
   branches:
