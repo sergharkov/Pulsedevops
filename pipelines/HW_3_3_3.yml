@@ -1,10 +1,13 @@
 #Varriables across(between) stages from parametrs
 #https://arunksingh16.medium.com/azure-devops-share-variable-across-stages-9bca85abfe8a
 #https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch
-#Output variables are still produced by steps inside of jobs. 
+#https://erwinstaal.nl/posts/azure-devops-multistage-pass-variables/
+
+#Output variables are still produced by steps inside of jobs.
+#in previous Stage.Job.task need use vso like  echo "##vso[task.setvariable variable=VarKey;isOutput=true]$(VarStage1A)"  
 #Instead of referring to dependencies.jobName.outputs['stepName.variableName'],
 #stages refer to stageDependencies.stageName.jobName.outputs['stepName.variableName'].
-#https://erwinstaal.nl/posts/azure-devops-multistage-pass-variables/
+
 trigger:
   batch: true  #when a pipeline is running, the system waits until the run is completed, then starts another run with all changes
   branches:
@@ -56,7 +59,7 @@ stages:
 ##################################################
 - stage: Stage1
   variables:
-    VarStage1A: ${{parameters.VarParametrsNumber}}
+    VarStage1A: ${{parameters.VarParametrsString}}
   displayName: DN-Stage1
   jobs:
   - job: Job1
