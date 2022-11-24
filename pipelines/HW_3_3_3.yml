@@ -42,8 +42,8 @@ parameters:
     type: boolean
     default: true
 
-#variables:
-#  - group: buildsENV
+variables:
+  - group: buildsENV
   
 stages:
 ##################################################
