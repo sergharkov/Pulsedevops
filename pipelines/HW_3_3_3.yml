@@ -89,3 +89,22 @@ stages:
           script: |
             echo "------Print Var from Parametr------------------"
             echo "VarStage2B  ==  $(VarStage2B)"
+
+- stage: Stage3_update_Library_value
+  variables:
+  - name: VarStage2B 
+    value: $[ stageDependencies.Stage1.Job1.outputs['Task1J1S1.VarKey'] ]
+
+  displayName: DN-Stage2
+  jobs:
+  - job: Job1
+    displayName: DN-Job2.1
+#    pool: $(poolvar)
+    steps:
+      - task: Bash@3
+        displayName: DN-task2.1.1-showVariables
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "------Print Var from Parametr------------------"
+            echo "VarStage2B  ==  $(VarStage2B)"
