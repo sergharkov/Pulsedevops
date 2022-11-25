@@ -75,7 +75,8 @@ stages:
             BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
             echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
             az extension add --name azure-devops
-            echo  $PAT | az devops login --organization $AZD_URL
+            echo  $(PAT)
+            echo  $(PAT) | az devops login --organization $AZD_URL
             az account set --subscription $AZdOpsSubs
 
 
