@@ -45,7 +45,35 @@ parameters:
 variables:
   - group: buildsENV
   - group: HW_3_3_3
-  
+
+
+- stage: Stage3_update_Library_value
+  variables:
+    AZdOpsSubs: 'ce0a8147-e18d-4ad2-b586-e20a2946eb49'
+    AKSclusterName: 'ELG-Group-dOpsCoreEMEA-001-aks' 
+    PAT: 'selfhost_pu7qcd77picmiuvkh7zhfhnwhgekdulphsuyiaafyjqccc6lp35q'
+    AZD_URL: 'https://dev.azure.com/ksi-azure'
+    AZD_P: 'dOPS'
+    VGID: '2'
+
+  displayName: DN-Stage3
+  jobs:
+  - job: Job1
+    displayName: DN-Job3.1
+#    pool: $(poolvar)
+    steps:
+      - task: Bash@3
+        displayName: DN-task3.1.1-showVariables
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "------Print Var from Var libs------------------"
+          echo -e '\n########################## get build number ###############################'
+          echo "HW_3_3_3_lib_var3-increm  ==  $(HW_3_3_3_lib_var3-increm)"
+          BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
+          echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
+
+
 stages:
 ##################################################
 - stage: Stage1
@@ -94,28 +122,3 @@ stages:
 
 
 
-- stage: Stage3_update_Library_value
-  variables:
-    AZdOpsSubs: 'ce0a8147-e18d-4ad2-b586-e20a2946eb49'
-    AKSclusterName: 'ELG-Group-dOpsCoreEMEA-001-aks' 
-    PAT: 'selfhost_pu7qcd77picmiuvkh7zhfhnwhgekdulphsuyiaafyjqccc6lp35q'
-    AZD_URL: 'https://dev.azure.com/ksi-azure'
-    AZD_P: 'dOPS'
-    VGID: '2'
-
-  displayName: DN-Stage3
-  jobs:
-  - job: Job1
-    displayName: DN-Job3.1
-#    pool: $(poolvar)
-    steps:
-      - task: Bash@3
-        displayName: DN-task3.1.1-showVariables
-        inputs:
-          targetType: 'inline'
-          script: |
-            echo "------Print Var from Var libs------------------"
-          echo -e '\n########################## get build number ###############################'
-          echo "HW_3_3_3_lib_var3-increm  ==  $(HW_3_3_3_lib_var3-increm)"
-          BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
-          echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
