@@ -29,7 +29,7 @@ parameters:
   - name: VarParametrsString
     displayName: 'Type of build  VarParametrsString'
     type: string
-    default: 'type4def'
+    default: 'type1'
     values: ['type1', 'type2', 'type3']
 
   - name: VarParametrsNumber
