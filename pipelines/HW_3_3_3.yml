@@ -44,6 +44,7 @@ parameters:
 
 variables:
   - group: buildsENV
+  - group: HW_3_3_3
   
 stages:
 ##################################################
@@ -90,19 +91,26 @@ stages:
             echo "------Print Var from Parametr------------------"
             echo "VarStage2B  ==  $(VarStage2B)"
 
+
+
+
 - stage: Stage3_update_Library_value
   variables:
-  - name: VarStage2B 
-    value: $[ stageDependencies.Stage1.Job1.outputs['Task1J1S1.VarKey'] ]
+    AZdOpsSubs: 'ce0a8147-e18d-4ad2-b586-e20a2946eb49'
+    AKSclusterName: 'ELG-Group-dOpsCoreEMEA-001-aks' 
+    PAT: 'selfhost_pu7qcd77picmiuvkh7zhfhnwhgekdulphsuyiaafyjqccc6lp35q'
+    AZD_URL: 'https://dev.azure.com/ksi-azure'
+    AZD_P: 'dOPS'
+    VGID: '2'
 
-  displayName: DN-Stage2
+  displayName: DN-Stage3
   jobs:
   - job: Job1
-    displayName: DN-Job2.1
+    displayName: DN-Job3.1
 #    pool: $(poolvar)
     steps:
       - task: Bash@3
-        displayName: DN-task2.1.1-showVariables
+        displayName: DN-task3.1.1-showVariables
         inputs:
           targetType: 'inline'
           script: |
