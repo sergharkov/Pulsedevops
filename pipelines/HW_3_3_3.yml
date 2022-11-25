@@ -71,7 +71,9 @@ stages:
             echo "------Print Var from Var libs------------------"
             echo -e '\n########################## get build number ###############################'
             echo 'HW_3_3_3_lib_var3-increm  ==  $(HW_3_3_3_lib_var3-increm)'
-            az devops logout
+            az pipelines variable-group list \
+              --group-name HW_3_3_3 \
+              --top 30
             BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
             echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
             az extension add --name azure-devops
