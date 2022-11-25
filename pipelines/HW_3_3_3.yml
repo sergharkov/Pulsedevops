@@ -48,7 +48,7 @@ variables:
 
 
 stages:
-
+##################################################
 - stage: Stage3_update_Library_value
   variables:
     AZdOpsSubs: 'ce0a8147-e18d-4ad2-b586-e20a2946eb49'
@@ -74,9 +74,14 @@ stages:
             echo 'HW_3_3_3_lib_var3-increm  ==  $(HW_3_3_3_lib_var3-increm)'
             BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
             echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
+            az extension add --name azure-devops
+            echo  $PAT | az devops login --organization $AZD_URL
+            az account set --subscription $AZdOpsSubs
+
+
+
 
 ##################################################
-
 - stage: Stage1
   variables:
     VarStage1A: ${{parameters.VarParametrsString}}
