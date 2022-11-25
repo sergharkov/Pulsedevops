@@ -70,11 +70,13 @@ stages:
           targetType: 'inline'
           script: |
             echo "------Print Var from Var libs------------------"
-          echo -e '\n########################## get build number ###############################'
-          echo "HW_3_3_3_lib_var3-increm  ==  $(HW_3_3_3_lib_var3-increm)"
-          BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
-          echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
+            echo -e '\n########################## get build number ###############################'
+            echo 'HW_3_3_3_lib_var3-increm  ==  $(HW_3_3_3_lib_var3-increm)'
+            BuildNumber=$(($(echo $(HW_3_3_3_lib_var3-increm)) + 1))  ############################
+            echo "HW_3_3_3_lib_var3-increm      22222  == $BuildNumber"
+
 ##################################################
+
 - stage: Stage1
   variables:
     VarStage1A: ${{parameters.VarParametrsString}}
