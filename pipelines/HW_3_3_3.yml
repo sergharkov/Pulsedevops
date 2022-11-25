@@ -53,7 +53,6 @@ stages:
   variables:
     AZdOpsSubs: 'ce0a8147-e18d-4ad2-b586-e20a2946eb49'
     AKSclusterName: 'ELG-Group-dOpsCoreEMEA-001-aks' 
-    PAT: 'selfhost_pu7qcd77picmiuvkh7zhfhnwhgekdulphsuyiaafyjqccc6lp35q'
     AZD_URL: 'https://dev.azure.com/ksi-azure'
     AZD_P: 'dOPS'
     VGID: '2'
